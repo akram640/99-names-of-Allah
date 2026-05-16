@@ -104,7 +104,16 @@ const baseNames = [
   { id: 34, arabic: "ٱلْغَفُورُ", transliteration: "Al-Ghafur", meaning: "The Exceedingly Forgiving" },
   { id: 35, arabic: "ٱلشَّكُورُ", transliteration: "Ash-Shakur", meaning: "The Most Appreciative" },
   { id: 36, arabic: "ٱلْعَلِيُّ", transliteration: "Al-Ali", meaning: "The Most High" },
-  { id: 37, arabic: "ٱلْكَبِيرُ", transliteration: "Al-Kabir", meaning: "The Most Grand" },
+  {
+    id: 37,
+    arabic: "ٱلْكَبِيرُ",
+    transliteration: "Al-Kabir",
+    meaning: "The Most Great",
+    root: "K-B-R",
+    rootNote: "Greatness, vastness, and majesty beyond all comparison.",
+    reflection:
+      "Let this Name make your worries feel smaller before the greatness and majesty of Allah.",
+  },
   { id: 38, arabic: "ٱلْحَفِيظُ", transliteration: "Al-Hafiz", meaning: "The Preserver" },
   { id: 39, arabic: "ٱلْمُقِيتُ", transliteration: "Al-Muqit", meaning: "The Sustainer" },
   { id: 40, arabic: "ٱلْحَسِيبُ", transliteration: "Al-Hasib", meaning: "The Reckoner" },

@@ -198,9 +198,15 @@ a {
   text-align: center;
 }
 
+.daily-card > :not(.ornament) {
+  position: relative;
+  z-index: 1;
+}
+
 .ornament {
   position: absolute;
   inset: 26px;
+  z-index: 0;
   border: 1px solid rgba(164, 125, 16, 0.2);
   border-radius: 18px;
   pointer-events: none;
@@ -542,6 +548,11 @@ a {
 
   .ornament {
     inset: 14px;
+  }
+
+  .ornament::before,
+  .ornament::after {
+    display: none;
   }
 
   .arabic-name {
