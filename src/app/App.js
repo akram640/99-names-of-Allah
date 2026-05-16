@@ -63,8 +63,12 @@ export function createApp(root) {
   const store = getStore();
 
   const render = () => {
+    const theme = store.getTheme();
     const route = getCurrentRoute();
     const activeRoute = routes[route];
+
+    document.documentElement.dataset.theme = theme;
+
     const content = activeRoute.render({
       names: namesOfAllah,
       reference: contentReference,
@@ -76,6 +80,7 @@ export function createApp(root) {
       routes,
       activeRoute: route,
       masteredCount: store.getMastered().length,
+      theme,
       content,
     });
 
@@ -93,6 +98,16 @@ export function createApp(root) {
       .forEach((button) => {
         button.addEventListener("click", () => {
           store.toggleMastered(Number(button.dataset.id));
+          render();
+        });
+      });
+
+    root
+      .querySelectorAll("[data-action='toggle-theme']")
+      .forEach((button) => {
+        button.addEventListener("click", () => {
+          const nextTheme = store.toggleTheme();
+          document.documentElement.dataset.theme = nextTheme;
           render();
         });
       });

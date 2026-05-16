@@ -9,12 +9,24 @@ const defaultState = {
     eveningTime: "20:00",
     weeklyTarget: "7",
   },
+  theme: "light",
 };
 
 function readState() {
   try {
     const saved = localStorage.getItem(storageKey);
-    return saved ? { ...defaultState, ...JSON.parse(saved) } : defaultState;
+    if (!saved) return defaultState;
+
+    const parsedState = JSON.parse(saved);
+
+    return {
+      ...defaultState,
+      ...parsedState,
+      preferences: {
+        ...defaultState.preferences,
+        ...(parsedState.preferences || {}),
+      },
+    };
   } catch {
     return defaultState;
   }
@@ -54,6 +66,17 @@ export function getStore() {
         },
       };
       writeState(state);
+    },
+    getTheme() {
+      return state.theme === "dark" ? "dark" : "light";
+    },
+    toggleTheme() {
+      state = {
+        ...state,
+        theme: state.theme === "dark" ? "light" : "dark",
+      };
+      writeState(state);
+      return state.theme;
     },
   };
 }

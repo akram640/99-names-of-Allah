@@ -1,4 +1,4 @@
-export function renderAppLayout({ routes, activeRoute, masteredCount, content }) {
+export function renderAppLayout({ routes, activeRoute, masteredCount, theme, content }) {
   const navItems = Object.entries(routes)
     .map(([key, route]) => {
       const isActive = activeRoute === key;
@@ -13,6 +13,11 @@ export function renderAppLayout({ routes, activeRoute, masteredCount, content })
 
   return `
     <div class="app-shell">
+      <button class="theme-toggle" data-action="toggle-theme" type="button" aria-label="Switch to ${theme === "dark" ? "light" : "dark"} theme" aria-pressed="${theme === "dark"}">
+        <span class="theme-toggle-icon" aria-hidden="true">${theme === "dark" ? "☾" : "☼"}</span>
+        <span>${theme === "dark" ? "Dark" : "Light"}</span>
+      </button>
+
       <aside class="sidebar">
         <div class="brand-block">
           <p class="eyebrow">Al-Asma-ul-Husna</p>
