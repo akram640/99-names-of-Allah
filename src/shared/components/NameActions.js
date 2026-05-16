@@ -7,6 +7,9 @@ export function renderNameActions(name, isMastered) {
       <button class="button secondary" data-action="speak-name" data-id="${name.id}">
         Listen
       </button>
+      <button class="button tertiary" data-action="learn-more" data-id="${name.id}">
+        Learn More
+      </button>
     </div>
   `;
 }

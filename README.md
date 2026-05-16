@@ -2,6 +2,8 @@
 
 A calm, daily reflection app for Al-Asma-ul-Husna. The home screen shows one name each day, includes a searchable library of all 99 names, and stores simple memorization progress locally.
 
+Each name also includes an in-app **Learn More** panel with longer paraphrased explanation, reflection guidance, and source metadata.
+
 ## Run locally
 
 This is a static ES-module app. No install step is required.

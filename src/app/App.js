@@ -3,6 +3,7 @@ import { renderDailyName } from "../features/daily-name/DailyName.js";
 import { renderNamesLibrary } from "../features/names-library/NamesLibrary.js";
 import { renderSettings } from "../features/settings/Settings.js";
 import { renderAppLayout } from "../shared/components/AppLayout.js";
+import { renderLearnMoreModal } from "../shared/components/LearnMoreModal.js";
 import { playNameAudio } from "../shared/utils/audio.js";
 import { getStore } from "../shared/utils/storage.js";
 
@@ -28,6 +29,35 @@ const getCurrentRoute = () => {
   const route = window.location.hash.replace("#", "");
   return routes[route] ? route : "daily";
 };
+
+function openLearnMoreModal(name) {
+  const modalHost = document.createElement("div");
+  modalHost.innerHTML = renderLearnMoreModal(name);
+  document.body.append(modalHost);
+
+  const close = () => {
+    modalHost.remove();
+    document.removeEventListener("keydown", closeOnEscape);
+  };
+
+  const closeOnEscape = (event) => {
+    if (event.key === "Escape") {
+      close();
+    }
+  };
+
+  modalHost
+    .querySelector("[data-action='close-learn-more']")
+    .addEventListener("click", close);
+  modalHost
+    .querySelector("[data-modal-backdrop]")
+    .addEventListener("click", (event) => {
+      if (event.target === event.currentTarget) {
+        close();
+      }
+    });
+  document.addEventListener("keydown", closeOnEscape);
+}
 
 export function createApp(root) {
   const store = getStore();
@@ -77,6 +107,17 @@ export function createApp(root) {
           button.disabled = true;
           await playNameAudio(name);
           button.disabled = false;
+        });
+      });
+
+    root
+      .querySelectorAll("[data-action='learn-more']")
+      .forEach((button) => {
+        button.addEventListener("click", () => {
+          const name = namesOfAllah.find((item) => item.id === Number(button.dataset.id));
+          if (!name) return;
+
+          openLearnMoreModal(name);
         });
       });
 

@@ -1,4 +1,5 @@
 import { getNameAudio } from "../content/audio/nameAudio.js";
+import { createNameDetail } from "../content/names/details.js";
 import { nameExplanations } from "../content/names/explanations.js";
 import { myIslamReference } from "../content/references/myislam.js";
 
@@ -185,6 +186,7 @@ const baseNames = [
 export const namesOfAllah = baseNames.map((name) => ({
   ...name,
   audio: getNameAudio(name.id),
+  detail: createNameDetail(name, nameExplanations[name.id - 1]),
   explanation: nameExplanations[name.id - 1],
   sourceStudy: myIslamReference.sourceName,
   reflection:
