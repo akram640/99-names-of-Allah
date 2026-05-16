@@ -363,6 +363,13 @@ a {
   line-height: 1.7;
 }
 
+.arabic-root {
+  direction: rtl;
+  font-family: "Noto Naskh Arabic", serif;
+  font-size: 2.2rem;
+  letter-spacing: 0;
+}
+
 .info-panel.dark {
   border-color: rgba(0, 53, 39, 0.18);
   background: linear-gradient(135deg, var(--primary), var(--teal));

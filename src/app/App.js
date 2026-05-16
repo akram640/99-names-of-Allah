@@ -3,6 +3,7 @@ import { renderDailyName } from "../features/daily-name/DailyName.js";
 import { renderNamesLibrary } from "../features/names-library/NamesLibrary.js";
 import { renderSettings } from "../features/settings/Settings.js";
 import { renderAppLayout } from "../shared/components/AppLayout.js";
+import { playNameAudio } from "../shared/utils/audio.js";
 import { getStore } from "../shared/utils/storage.js";
 
 const routes = {
@@ -69,15 +70,13 @@ export function createApp(root) {
     root
       .querySelectorAll("[data-action='speak-name']")
       .forEach((button) => {
-        button.addEventListener("click", () => {
+        button.addEventListener("click", async () => {
           const name = namesOfAllah.find((item) => item.id === Number(button.dataset.id));
-          if (!name || !window.speechSynthesis) return;
+          if (!name) return;
 
-          const utterance = new SpeechSynthesisUtterance(name.transliteration);
-          utterance.rate = 0.78;
-          utterance.pitch = 0.9;
-          window.speechSynthesis.cancel();
-          window.speechSynthesis.speak(utterance);
+          button.disabled = true;
+          await playNameAudio(name);
+          button.disabled = false;
         });
       });
 

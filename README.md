@@ -26,6 +26,7 @@ The included `netlify.toml` already declares the same publish directory.
 ```text
 src/
   app/                  App composition and navigation
+  content/audio         Human audio provider mappings
   content/              Source-organized educational content
   data/                 The 99 Names dataset
   features/             Feature modules: daily name, library, settings
@@ -38,3 +39,5 @@ docs/
 ## Content note
 
 The names, transliterations, meanings, and concise explanations use a commonly circulated Al-Asma-ul-Husna ordering, cross-checked against public reference lists such as Britannica, 99NamesOfAllah.name, and MyIslam. MyIslam-derived content is organized under `src/content/` and paraphrased for this app rather than copied directly. Scholarly lists and translations can vary, so keep the dataset reviewable in `src/data/names.js`.
+
+Audio uses individual MP3 name recordings from the MIT-licensed `MohammedAbidNafi/99-Names-of-Allah` repository when available, with browser Arabic speech as a fallback.

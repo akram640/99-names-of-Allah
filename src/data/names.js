@@ -1,3 +1,4 @@
+import { getNameAudio } from "../content/audio/nameAudio.js";
 import { nameExplanations } from "../content/names/explanations.js";
 import { myIslamReference } from "../content/references/myislam.js";
 
@@ -7,7 +8,7 @@ const baseNames = [
     arabic: "ٱلرَّحْمَٰنُ",
     transliteration: "Ar-Rahman",
     meaning: "The Most Merciful",
-    root: "R-H-M",
+    root: "رحم",
     rootNote: "Mercy, tenderness, and loving care that surrounds creation.",
   },
   {
@@ -15,7 +16,7 @@ const baseNames = [
     arabic: "ٱلرَّحِيمُ",
     transliteration: "Ar-Rahim",
     meaning: "The Especially Merciful",
-    root: "R-H-M",
+    root: "رحم",
     rootNote: "Mercy shown with nearness, continuity, and special care.",
   },
   {
@@ -23,7 +24,7 @@ const baseNames = [
     arabic: "ٱلْمَلِكُ",
     transliteration: "Al-Malik",
     meaning: "The King and Owner of Dominion",
-    root: "M-L-K",
+    root: "ملك",
     rootNote: "Sovereignty, authority, and complete ownership.",
   },
   {
@@ -31,7 +32,7 @@ const baseNames = [
     arabic: "ٱلْقُدُّوسُ",
     transliteration: "Al-Quddus",
     meaning: "The Absolutely Pure",
-    root: "Q-D-S",
+    root: "قدس",
     rootNote: "Purity, holiness, and being far above imperfection.",
   },
   {
@@ -39,7 +40,7 @@ const baseNames = [
     arabic: "ٱلسَّلَامُ",
     transliteration: "As-Salam",
     meaning: "The Source of Peace",
-    root: "S-L-M",
+    root: "سلم",
     rootNote: "Peace, wholeness, safety, and freedom from defect.",
   },
   {
@@ -47,7 +48,7 @@ const baseNames = [
     arabic: "ٱلْمُؤْمِنُ",
     transliteration: "Al-Mu'min",
     meaning: "The Granter of Security and Faith",
-    root: "A-M-N",
+    root: "أمن",
     rootNote: "Trust, safety, affirmation, and faithful assurance.",
   },
   {
@@ -79,7 +80,7 @@ const baseNames = [
     arabic: "ٱلْخَٰلِقُ",
     transliteration: "Al-Khaliq",
     meaning: "The Creator",
-    root: "Kh-L-Q",
+    root: "خلق",
     rootNote: "To create, determine, and bring into existence in perfect measure.",
   },
   { id: 12, arabic: "ٱلْبَارِئُ", transliteration: "Al-Bari", meaning: "The Originator" },
@@ -112,7 +113,7 @@ const baseNames = [
     arabic: "ٱلْكَبِيرُ",
     transliteration: "Al-Kabir",
     meaning: "The Most Great",
-    root: "K-B-R",
+    root: "كبر",
     rootNote: "Greatness, vastness, and majesty beyond all comparison.",
     reflection:
       "Let this Name make your worries feel smaller before the greatness and majesty of Allah.",
@@ -183,6 +184,7 @@ const baseNames = [
 
 export const namesOfAllah = baseNames.map((name) => ({
   ...name,
+  audio: getNameAudio(name.id),
   explanation: nameExplanations[name.id - 1],
   sourceStudy: myIslamReference.sourceName,
   reflection:

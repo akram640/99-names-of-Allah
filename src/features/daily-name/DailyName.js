@@ -26,7 +26,7 @@ export function renderDailyName({ names, reference, store }) {
       <div class="insight-grid">
         <article class="info-panel">
           <p class="eyebrow">${dailyName.root ? "Root" : "Meaning"}</p>
-          <h3>${dailyName.root || dailyName.transliteration}</h3>
+          <h3 class="${dailyName.root ? "arabic-root" : ""}">${dailyName.root || dailyName.transliteration}</h3>
           <p>${dailyName.rootNote || dailyName.explanation}</p>
         </article>
 
