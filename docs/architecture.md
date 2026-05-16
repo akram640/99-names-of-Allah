@@ -16,6 +16,8 @@ This keeps first deployment simple on Netlify while still giving the project cle
 - `features/daily-name`: owns the daily rotation and home screen.
 - `features/names-library`: owns search, filtering, and name cards.
 - `features/settings`: owns local preferences.
+- `content/names`: owns organized educational content such as concise explanations.
+- `content/references`: owns source metadata and study guidance.
 - `shared/components`: layout and UI pieces used by multiple features.
 - `shared/utils`: pure helpers such as dates, storage, and speech.
 - `data`: structured source content.

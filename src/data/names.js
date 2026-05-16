@@ -1,3 +1,6 @@
+import { nameExplanations } from "../content/names/explanations.js";
+import { myIslamReference } from "../content/references/myislam.js";
+
 const baseNames = [
   {
     id: 1,
@@ -180,7 +183,11 @@ const baseNames = [
 
 export const namesOfAllah = baseNames.map((name) => ({
   ...name,
+  explanation: nameExplanations[name.id - 1],
+  sourceStudy: myIslamReference.sourceName,
   reflection:
     name.reflection ||
     `Reflect on ${name.transliteration} by noticing ${name.meaning.toLowerCase()} with gratitude today.`,
 }));
+
+export const contentReference = myIslamReference;

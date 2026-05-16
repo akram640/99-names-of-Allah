@@ -1,4 +1,4 @@
-import { namesOfAllah } from "../data/names.js";
+import { contentReference, namesOfAllah } from "../data/names.js";
 import { renderDailyName } from "../features/daily-name/DailyName.js";
 import { renderNamesLibrary } from "../features/names-library/NamesLibrary.js";
 import { renderSettings } from "../features/settings/Settings.js";
@@ -34,7 +34,12 @@ export function createApp(root) {
   const render = () => {
     const route = getCurrentRoute();
     const activeRoute = routes[route];
-    const content = activeRoute.render({ names: namesOfAllah, store, render });
+    const content = activeRoute.render({
+      names: namesOfAllah,
+      reference: contentReference,
+      render,
+      store,
+    });
 
     root.innerHTML = renderAppLayout({
       routes,

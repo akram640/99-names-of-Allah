@@ -26,6 +26,7 @@ The included `netlify.toml` already declares the same publish directory.
 ```text
 src/
   app/                  App composition and navigation
+  content/              Source-organized educational content
   data/                 The 99 Names dataset
   features/             Feature modules: daily name, library, settings
   shared/               Reusable components and utilities
@@ -36,4 +37,4 @@ docs/
 
 ## Content note
 
-The names, transliterations, and meanings use a commonly circulated Al-Asma-ul-Husna ordering, cross-checked against public reference lists such as Britannica and 99NamesOfAllah.name. Scholarly lists and translations can vary, so keep the dataset reviewable in `src/data/names.js`.
+The names, transliterations, meanings, and concise explanations use a commonly circulated Al-Asma-ul-Husna ordering, cross-checked against public reference lists such as Britannica, 99NamesOfAllah.name, and MyIslam. MyIslam-derived content is organized under `src/content/` and paraphrased for this app rather than copied directly. Scholarly lists and translations can vary, so keep the dataset reviewable in `src/data/names.js`.

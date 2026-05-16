@@ -9,6 +9,7 @@ export function renderNamesLibrary({ names, store }) {
         name.arabic,
         name.transliteration,
         name.meaning,
+        name.explanation,
       ].join(" ").toLowerCase();
 
       return `
@@ -20,6 +21,7 @@ export function renderNamesLibrary({ names, store }) {
           <h3 class="arabic-name small">${name.arabic}</h3>
           <p class="transliteration small">${name.transliteration}</p>
           <p class="meaning small">${name.meaning}</p>
+          <p class="card-explanation">${name.explanation}</p>
           ${renderNameActions(name, isMastered)}
         </article>
       `;
